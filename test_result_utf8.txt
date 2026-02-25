@@ -1,0 +1,8 @@
+﻿✅ Vertex AI initializing with project: ai-mall-484810
+📍 Location: us-central1
+✅ Vertex AI initialized successfully
+🤖 Model: gemini-1.5-flash
+📍 Region: us-central1
+🆔 Project: ai-mall-484810
+Testing simple call to gemini-1.5-flash
+Sending simple prompt...

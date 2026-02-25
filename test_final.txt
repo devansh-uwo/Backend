@@ -1,0 +1,66 @@
+﻿Testing Vertex AI: Project=a-series-484205, Location=asia-south1, Model=gemini-1.5-flash
+Sending simple prompt...
+node : Simple test FAILED: 
+[VertexAI.ClientError]: got 
+status: 403 Forbidden. {"erro
+r":{"code":403,"message":"Per
+mission 'aiplatform.endpoints
+.predict' denied on resource 
+'//aiplatform.googleapis.com/
+projects/a-series-484205/loca
+tions/asia-south1/publishers/
+google/models/gemini-1.5-flas
+h' (or it may not exist).","s
+tatus":"PERMISSION_DENIED","d
+etails":[{"@type":"type.googl
+eapis.com/google.rpc.ErrorInf
+o","reason":"IAM_PERMISSION_D
+ENIED","domain":"aiplatform.g
+oogleapis.com","metadata":{"p
+ermission":"aiplatform.endpoi
+nts.predict","resource":"proj
+ects/a-series-484205/location
+s/asia-south1/publishers/goog
+le/models/gemini-1.5-flash"}}
+]}}
+At line:1 char:1
++ node test-simple-vertex.js 
+2>&1 | Out-File -FilePath 
+test_final.txt - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~
+    + CategoryInfo           
+   : NotSpecified: (Simple   
+  test FAI...1.5-flash"}}]   
+ }}:String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+Full error object: {
+  "name": "ClientError",
+  "stackTrace": {
+    "code": 403,
+    "status": 
+"PERMISSION_DENIED",
+    "errorDetails": [
+      {
+        "@type": "type.google
+apis.com/google.rpc.ErrorInfo
+",
+        "reason": 
+"IAM_PERMISSION_DENIED",
+        "domain": 
+"aiplatform.googleapis.com",
+        "metadata": {
+          "permission": "aipl
+atform.endpoints.predict",
+          "resource": "projec
+ts/a-series-484205/locations/
+asia-south1/publishers/google
+/models/gemini-1.5-flash"
+        }
+      }
+    ]
+  }
+}

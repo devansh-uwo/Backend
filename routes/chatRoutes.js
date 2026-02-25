@@ -29,7 +29,7 @@ const checkGuestLimits = async (req, sessionId) => {
 
 // Get all chat sessions (summary)
 router.post("/", optionalVerifyToken, identifyGuest, async (req, res) => {
-  const { content, history, systemInstruction, image, video, document, language, model, mode, sessionId } = req.body;
+  const { content, history, systemInstruction, image, video, document, language, model, mode, sessionId, agentType } = req.body;
 
   try {
     // Enforce limits for guests
@@ -39,7 +39,7 @@ router.post("/", optionalVerifyToken, identifyGuest, async (req, res) => {
     }
 
     // --- MULTI-MODEL DISPATCHER ---
-    if (model && !model.startsWith('gemini')) {
+    if (model && (!model.startsWith('aiva') && !model.startsWith('gemini'))) {
       try {
         let reply = "";
 
@@ -97,9 +97,9 @@ router.post("/", optionalVerifyToken, identifyGuest, async (req, res) => {
 
       } catch (apiError) {
         console.error(`Error calling ${model}:`, apiError.response?.data || apiError.message);
-        // Fallback: Do not return 500. Let it fall through to Gemini logic.
-        // We will append a note to the final reply later if needed, or just let Gemini answer.
-        console.log(`Falling back to Gemini due to ${model} failure.`);
+        // Fallback: Do not return 500. Let it fall through to AIVA logic.
+        // We will append a note to the final reply later if needed, or just let AIVA answer.
+        console.log(`Falling back to AIVA due to ${model} failure.`);
       }
     }
     // Detect mode based on content and attachments
@@ -130,7 +130,7 @@ router.post("/", optionalVerifyToken, identifyGuest, async (req, res) => {
     // Use mode-specific system instruction, or fallback to provided systemInstruction
     // CRITICAL: FILE_CONVERSION instructions must take priority over frontend generic prompts
     let finalSystemInstruction = systemInstruction || modeSystemInstruction;
-    if (detectedMode === 'FILE_CONVERSION' || detectedMode === 'FILE_ANALYSIS') {
+    if ((detectedMode === 'FILE_CONVERSION' || detectedMode === 'FILE_ANALYSIS') && !agentType) {
       finalSystemInstruction = modeSystemInstruction;
     } else {
       // Only add standard rules for non-specialized modes to avoid instruction collision
@@ -560,9 +560,10 @@ Do not output any other text or explanation if you are triggering these actions.
           reply = await attemptGeneration();
           break; // Success!
         } catch (err) {
-          if (err.status === 429 && retryCount < maxRetries - 1) {
+          if ((err.status === 429 || err.message?.includes('429') || err.message?.includes('Resource exhausted')) && retryCount < maxRetries - 1) {
+            console.log(`[GEMINI] Rate limit hit (429). Retrying... (${retryCount + 1}/${maxRetries - 1})`);
             retryCount++;
-            const waitTime = Math.pow(2, retryCount) * 1000;
+            const waitTime = Math.pow(2, retryCount) * 2000; // 4s, 8s
             await new Promise(resolve => setTimeout(resolve, waitTime));
             continue;
           }
@@ -780,7 +781,7 @@ Stack: ${err.stack}
     const statusCode = err.status || 500;
 
     // Feature Request: Explain the prompt instead of raw error for Image/Video intent
-    if (detectedMode === 'IMAGE_GEN' || detectedMode === 'VIDEO_GEN') {
+    if (typeof detectedMode !== 'undefined' && (detectedMode === 'IMAGE_GEN' || detectedMode === 'VIDEO_GEN')) {
       const type = detectedMode === 'IMAGE_GEN' ? 'image' : 'video';
       return res.status(200).json({
         success: true,

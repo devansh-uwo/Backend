@@ -11,6 +11,7 @@ import authRoutes from "./routes/authRoutes.js";
 import cookieParser from "cookie-parser";
 import emailVatifiation from "./routes/emailVerification.js"
 import userRoute from './routes/user.js'
+import aihireRoutes from './routes/aihireRoutes.js';
 
 import chatRoute from './routes/chat.routes.js';
 import knowledgeRoute from './routes/knowledge.routes.js';
@@ -95,11 +96,14 @@ app.use('/api/agents', agentRoutes);
 //email varification route 
 app.use("/api/email_varification", emailVatifiation)
 
+// AIHIRE Routes (Before generic /api route)
+app.use('/api/aihire', aihireRoutes);
+
+// PDF Analysis Routes: /api/pdf/analyze (Specific route MUST be before generic /api)
+app.use('/api/pdf', pdfRoutes);
+
 // Dashboard/General Routes: /api/dashboard/stats, /api/automations, /api/admin/settings
 app.use('/api', dashboardRoutes);
-
-// PDF Analysis Routes: /api/pdf/analyze
-app.use('/api/pdf', pdfRoutes);
 
 // AIBIZ Routes
 app.use('/api/aibiz', aibizRoutes);
@@ -112,6 +116,8 @@ app.use('/api/notifications', notificationRoutes);
 
 // Revenue Routes
 app.use('/api/revenue', revenueRoutes);
+
+// AIHIRE Routes moved up
 
 // Support Routes
 app.use('/api/support', supportRoutes);
@@ -141,3 +147,4 @@ app.listen(PORT, '0.0.0.0', () => {
     Secret: process.env.RAZORPAY_KEY_SECRET ? "PRESENT" : "MISSING"
   });
 }); // Environment variables updated loop restart
+ 

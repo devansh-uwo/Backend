@@ -1,0 +1,42 @@
+﻿✅ Vertex AI initializing with project: ai-mall-484810
+📍 Location: us-central1
+✅ Vertex AI initialized successfully
+🤖 Model: gemini-1.5-flash-002
+📍 Region: us-central1
+🆔 Project: ai-mall-484810
+Testing Vertex AI with model: gemini-1.5-flash-002
+Sending message...
+node : FAILED: 
+[VertexAI.GoogleAuthError]: 
+At line:1 char:1
++ node test-vertex-hire.js 
+> test-output-hire-2.txt 
+2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (FAILE  
+  D: [VertexAI.GoogleAuth   
+ Error]: :String) [], Re    
+moteException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+Unable to authenticate your 
+request        
+Depending on your run time 
+environment, you can get 
+authentication by        
+- if in local instance or 
+cloud shell: `!gcloud auth 
+login`        
+- if in Colab:        
+    -`from google.colab 
+import auth`        
+    
+-`auth.authenticate_user()` 
+       
+- if in service account or 
+other: please follow 
+guidance in https://cloud.go
+ogle.com/docs/authentication

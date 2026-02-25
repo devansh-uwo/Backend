@@ -121,7 +121,7 @@ Ensure all advice and certifications are grounded in the best available data and
 
             finalPrompt += `USER QUESTION: ${prompt}`;
 
-            logger.info(`[VERTEX] Sending request to Vertex AI (${modelName})...`);
+            logger.info(`[VERTEX] Sending request to AIVA (${modelName})...`);
 
             const result = await model.generateContent(finalPrompt);
             const response = await result.response;

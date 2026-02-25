@@ -1,0 +1,55 @@
+
+[2026-02-23T07:43:22.082Z] Received request: POST /offer-letter
+
+[2026-02-23T07:43:32.670Z] AIHIRE ERROR: [VertexAI.GoogleAuthError]: 
+Unable to authenticate your request        
+Depending on your run time environment, you can get authentication by        
+- if in local instance or cloud shell: `!gcloud auth login`        
+- if in Colab:        
+    -`from google.colab import auth`        
+    -`auth.authenticate_user()`        
+- if in service account or other: please follow guidance in https://cloud.google.com/docs/authentication
+Stack: GoogleAuthError: [VertexAI.GoogleAuthError]: 
+Unable to authenticate your request        
+Depending on your run time environment, you can get authentication by        
+- if in local instance or cloud shell: `!gcloud auth login`        
+- if in Colab:        
+    -`from google.colab import auth`        
+    -`auth.authenticate_user()`        
+- if in service account or other: please follow guidance in https://cloud.google.com/docs/authentication
+    at E:\hire\Backend\node_modules\@google-cloud\vertexai\build\src\models\generative_models.js:230:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateContent (E:\hire\Backend\node_modules\@google-cloud\vertexai\build\src\functions\generate_content.js:51:16)
+    at async generateOfferLetter (file:///E:/hire/Backend/controllers/aihireController.js:172:24)
+
+[2026-02-23T07:50:10.207Z] Received request: POST /offer-letter
+
+[2026-02-23T07:50:23.180Z] AIHIRE ERROR: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/ai-mall-484810/locations/us-central1/publishers/google/models/gemini-1.5-flash` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+Stack: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/ai-mall-484810/locations/us-central1/publishers/google/models/gemini-1.5-flash` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (E:\hire\Backend\node_modules\@google-cloud\vertexai\build\src\functions\post_fetch_processing.js:32:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateContent (E:\hire\Backend\node_modules\@google-cloud\vertexai\build\src\functions\generate_content.js:59:5)
+    at async generateOfferLetter (file:///E:/hire/Backend/controllers/aihireController.js:172:24)
+
+[2026-02-23T09:14:55.251Z] Received request: POST /offer-letter
+
+[2026-02-23T09:15:06.980Z] AIHIRE ERROR: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/ai-mall-484810/locations/us-central1/publishers/google/models/gemini-1.5-flash-002` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+Stack: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/ai-mall-484810/locations/us-central1/publishers/google/models/gemini-1.5-flash-002` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (E:\hire\Backend\node_modules\@google-cloud\vertexai\build\src\functions\post_fetch_processing.js:32:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateContent (E:\hire\Backend\node_modules\@google-cloud\vertexai\build\src\functions\generate_content.js:59:5)
+    at async generateOfferLetter (file:///E:/hire/Backend/controllers/aihireController.js:172:24)
+
+[2026-02-23T09:34:30.844Z] Received request: POST /offer-letter
+
+[2026-02-23T11:11:52.546Z] Received request: POST /offer-letter
+
+[2026-02-23T11:37:45.589Z] Received request: POST /offer-letter
+
+[2026-02-23T11:47:52.574Z] Received request: POST /offer-letter
+
+[2026-02-23T12:02:36.306Z] Received request: POST /offer-letter
+
+[2026-02-23T16:02:27.346Z] Received request: POST /offer-letter
+
+[2026-02-24T06:35:31.842Z] Received request: POST /offer-letter

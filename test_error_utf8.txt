@@ -1,0 +1,208 @@
+﻿✅ Vertex AI initializing with project: ai-mall-484810
+📍 Location: us-central1
+✅ Vertex AI initialized successfully
+🤖 Model: gemini-1.5-flash
+📍 Region: us-central1
+🆔 Project: ai-mall-484810
+Testing simple call to gemini-1.5-flash
+Sending simple prompt...
+node : Simple test FAILED: 
+[VertexAI.GoogleAuthError]: 
+At line:1 char:1
++ node test-simple-vertex.js 
+2>&1 | Out-File -FilePath 
+test_error_utf8. ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~
+    + CategoryInfo           
+   : NotSpecified: (Simple   
+  test FAI...gleAuthError]   
+ : :String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+Unable to authenticate your 
+request        
+Depending on your run time 
+environment, you can get 
+authentication by        
+- if in local instance or 
+cloud shell: `!gcloud auth 
+login`        
+- if in Colab:        
+    -`from google.colab 
+import auth`        
+    
+-`auth.authenticate_user()`  
+      
+- if in service account or 
+other: please follow 
+guidance in https://cloud.goo
+gle.com/docs/authentication
+Full error object: {
+  "name": "GoogleAuthError",
+  "stackTrace": {
+    "config": {
+      "retry": true,
+      "retryConfig": {
+        
+"httpMethodsToRetry": [
+          "GET",
+          "PUT",
+          "POST",
+          "HEAD",
+          "OPTIONS",
+          "DELETE"
+        ],
+        
+"currentRetryAttempt": 0,
+        "retry": 3,
+        "noResponseRetries": 
+2,
+        
+"retryDelayMultiplier": 2,
+        
+"timeOfFirstRequest": 
+1771830403011,
+        "totalTimeout": 
+9007199254740991,
+        "maxRetryDelay": 
+9007199254740991,
+        
+"statusCodesToRetry": [
+          [
+            100,
+            199
+          ],
+          [
+            408,
+            408
+          ],
+          [
+            429,
+            429
+          ],
+          [
+            500,
+            599
+          ]
+        ]
+      },
+      "method": "POST",
+      "url": "https://oauth2.
+googleapis.com/token",
+      "data": "<<REDACTED> - 
+See `errorRedactor` option 
+in `gaxios` for 
+configuration>.",
+      "headers": {
+        "Content-Type": "appl
+ication/x-www-form-urlencoded
+",
+        "User-Agent": "google
+-api-nodejs-client/9.15.1",
+        "x-goog-api-client": 
+"gl-node/22.15.0"
+      },
+      "body": "<<REDACTED> - 
+See `errorRedactor` option 
+in `gaxios` for 
+configuration>.",
+      "responseType": 
+"unknown"
+    },
+    "response": {
+      "config": {
+        "retry": true,
+        "retryConfig": {
+          
+"httpMethodsToRetry": [
+            "GET",
+            "PUT",
+            "POST",
+            "HEAD",
+            "OPTIONS",
+            "DELETE"
+          ]
+        },
+        "method": "POST",
+        "url": "https://oauth
+2.googleapis.com/token",
+        "data": "<<REDACTED> 
+- See `errorRedactor` option 
+in `gaxios` for 
+configuration>.",
+        "headers": {
+          "Content-Type": "ap
+plication/x-www-form-urlencod
+ed",
+          "User-Agent": "goog
+le-api-nodejs-client/9.15.1",
+          
+"x-goog-api-client": 
+"gl-node/22.15.0"
+        },
+        "body": "<<REDACTED> 
+- See `errorRedactor` option 
+in `gaxios` for 
+configuration>.",
+        "responseType": 
+"unknown"
+      },
+      "data": {
+        "error": 
+"invalid_grant",
+        "error_description": 
+"reauth related error 
+(invalid_rapt)",
+        "error_uri": "https:/
+/support.google.com/a/answer/
+9368756",
+        "error_subtype": 
+"invalid_rapt"
+      },
+      "headers": {
+        "alt-svc": 
+"h3=\":443\"; 
+ma=2592000,h3-29=\":443\"; 
+ma=2592000",
+        "cache-control": 
+"no-cache, no-store, 
+max-age=0, must-revalidate",
+        "content-encoding": 
+"gzip",
+        "content-type": 
+"application/json; 
+charset=utf-8",
+        "date": "Mon, 23 Feb 
+2026 07:06:44 GMT",
+        "expires": "Mon, 01 
+Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache",
+        "server": 
+"scaffolding on HTTPServer2",
+        "transfer-encoding": 
+"chunked",
+        "vary": "Origin, 
+X-Origin, Referer",
+        
+"x-content-type-options": 
+"nosniff",
+        "x-frame-options": 
+"SAMEORIGIN",
+        "x-xss-protection": 
+"0"
+      },
+      "status": 400,
+      "statusText": "Bad 
+Request",
+      "request": {
+        "responseURL": "https
+://oauth2.googleapis.com/toke
+n"
+      }
+    },
+    "status": 400
+  }
+}

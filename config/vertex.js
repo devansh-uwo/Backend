@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // FORCE VERTEX AI ONLY
 const projectId = process.env.GCP_PROJECT_ID;
-const location = 'us-central1'; // Most stable region for Gemini
+const location = 'asia-south1'; // REGION_MARKER_V2
 const keyFilePath = path.join(__dirname, '../google_cloud_credentials.json');
 
 let vertexAI;
@@ -21,7 +21,7 @@ console.log(`✅ Vertex AI initializing with project: ${projectId}`);
 console.log(`📍 Location: ${location}`);
 
 // Model name - Stable version
-export const modelName = "gemini-2.0-flash-001";
+export const modelName = "gemini-2.5-flash";
 
 try {
   // Try with ADC (Application Default Credentials) first
